@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+    <head>  
+        <meta charset="UTF-8">
+        <meta name="author" content="Kysean">
+        <meta name="keywords" content="Kysean,个人网站">
+        <meta name="description" content="Kysean的个人网站">
+        <title>Kysean的网站</title>
+        <link rel="stylesheet" href="style.css">
+
+    <style>
+        body {
+                background-color: #d4e5ee;
+        }
+        .title {
+            display: flex;
+            justify-content: left;
+            align-items: center;
+            height: auto;
+        }
+        /* 主内容区flex布局 */
+        #main {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 32px; /* 控制左右间距 */
+            width: 100%;
+            min-height: 600px;
+            box-sizing: border-box;
+            padding: 24px 5vw;
+        }
+        #introduce {
+            flex: 2 1 320px;
+            min-width: 260px;
+            background-color: rgb(103, 170, 201);
+            padding: 32px 24px;
+            border-radius: 12px;
+            box-sizing: border-box;
+            margin-bottom: 16px;
+        }
+        #message {
+            flex: 1 1 220px;
+            min-width: 180px;
+            background-color: rgb(112, 112, 206);
+            color: #fff;
+            padding: 32px 24px;
+            border-radius: 12px;
+            box-sizing: border-box;
+            margin-bottom: 16px;
+        }
+        #message_title {
+            text-align: center;
+        }
+        #message h2 {
+            color: #fff;
+        }
+        /* 仪表盘时间栏样式 */
+        #message .clock-bar {
+            width: 100%;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            border-radius: 6px;
+            margin-top: 12px;
+        }
+        #clock {
+            margin-left: 8px;
+        }
+        #hitokoto_from {
+            text-align: right;
+            display: block;
+            margin-top: 0;
+            margin-bottom: 0;
+            font-style: italic;
+            color: #e0e0e0;
+        }
+        /* 响应式：小屏幕下上下排列 */
+        @media (max-width: 900px) {
+            #main {
+                flex-direction: column;
+                gap: 20px;
+                padding: 12px 2vw;
+            }
+            #introduce, #message {
+                width: 100%;
+                min-width: 0;
+            }
+        }
+    </style>
+
+
+    <script>
+    fetch('https://v1.hitokoto.cn')
+        .then(response => response.json())
+        .then(data => {
+            hitokoto_text.innerText = data.hitokoto
+            hitokoto_from.innerText = '————' + data.from  // 前面加上--
+        })
+        .catch(console.error)
+    </script>
+
+    <!--时钟脚本-->
+    <script>
+    var i=0;
+    function myDate(){
+        var now=new Date();
+        var year=now.getFullYear();
+        var month=now.getMonth()+1;
+        var day=now.getDate();
+        var hours=now.getHours();
+        var minutes=now.getMinutes();
+        var seconds=now.getSeconds();
+ 
+        document.getElementById("clock").innerHTML=year+"年"+month+"月"+day+"日"+hours+"："+minutes+"："+seconds;
+    }
+    setInterval(myDate,1000);
+    </script>
+    <script src="https://fastly.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js"></script>
+</head>
+
+    <body>
+        <!--标题栏-->
+        <div id = "title" class="title">
+            <img src = "image/Kysean.png" alt = "Kysean" width = "100" height = "100" >
+            <h1>Kysean的个人网站</h1>
+        </div>
+        <hr>
+
+        <!--导航栏-->
+        <nav style="text-align: center;">
+            <a href="index.html">🏠首页</a> |
+            <a href="webpage.html">🌐网站</a> |
+            <a href="repo.html">📦仓库</a> |
+            <a href="contact.html">☎️联系我</a>
+        </nav>
+        <hr>
+
+        <!--内容-->
+        <div id="main">
+            <!--文字介绍-->
+            <div id="introduce">
+                <h2 id = "message_title">👋欢迎来到我的网站！👋</h2>
+                <p id = "message_title">我是Kysean，这是我学习与分享的网站。</p>
+                <p id = "message_title">本人爱好编程，喜欢探索新的技术。</p>
+                <p id = "message_title">感谢你的访问，期待下次再见！</p>
+            </div>
+
+            <!--仪表盘-->
+            <div id="message">
+                <h2 id = "message_title"> 📊仪表盘 📊</h2>
+                <div class="clock-bar">🕔当前时间：<div id="clock">当前时间</div></div>
+                <p id="hitokoto_text">:D 获取中...</p>
+                <p id="hitokoto_from">from</p>
+            </div>
+        </div>
+
+        <!--页脚-->
+        <div>
+            <footer>
+                <p style="text-align: center;">&copy; 2025 Kysean 保留所有权利。</p>
+            </footer>
+        </div>
+
+    </body>
+</html>
