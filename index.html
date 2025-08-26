@@ -9,27 +9,30 @@
         <link rel="stylesheet" href="style.css">
 
     <style>
+        
         body {
                 background-color: #d4e5ee;
         }
+
         .title {
             display: flex;
             justify-content: left;
             align-items: center;
             height: auto;
         }
-        /* 主内容区flex布局 */
+
         #main {
             display: flex;
             flex-direction: row;
             justify-content: center;
             align-items: flex-start;
-            gap: 32px; /* 控制左右间距 */
+            gap: 32px; 
             width: 100%;
             min-height: 600px;
             box-sizing: border-box;
             padding: 24px 5vw;
         }
+
         #introduce {
             flex: 2 1 320px;
             min-width: 260px;
@@ -39,6 +42,7 @@
             box-sizing: border-box;
             margin-bottom: 16px;
         }
+
         #message {
             flex: 1 1 220px;
             min-width: 180px;
@@ -49,13 +53,15 @@
             box-sizing: border-box;
             margin-bottom: 16px;
         }
+
         #message_title {
             text-align: center;
         }
+
         #message h2 {
             color: #fff;
         }
-        /* 仪表盘时间栏样式 */
+
         #message .clock-bar {
             width: 100%;
             height: 30px;
@@ -64,9 +70,11 @@
             border-radius: 6px;
             margin-top: 12px;
         }
+
         #clock {
             margin-left: 8px;
         }
+
         #hitokoto_from {
             text-align: right;
             display: block;
@@ -75,7 +83,7 @@
             font-style: italic;
             color: #e0e0e0;
         }
-        /* 响应式：小屏幕下上下排列 */
+
         @media (max-width: 900px) {
             #main {
                 flex-direction: column;
@@ -95,7 +103,7 @@
         .then(response => response.json())
         .then(data => {
             hitokoto_text.innerText = data.hitokoto
-            hitokoto_from.innerText = '————' + data.from  // 前面加上--
+            hitokoto_from.innerText = '————' + data.from
         })
         .catch(console.error)
     </script>
@@ -116,7 +124,7 @@
     }
     setInterval(myDate,1000);
     </script>
-    <script src="https://fastly.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js"></script>
+
 </head>
 
     <body>
