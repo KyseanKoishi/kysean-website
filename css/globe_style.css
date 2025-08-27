@@ -8,12 +8,5 @@
 body {
   font-family: 'LOLI2', sans-serif;
   font-size: 20px;
-}
-
-a {
-  text-decoration: none;
-}
-
-a:hover {
-  color: rgb(0, 0, 0);
+  background-color: #d4e5ee;
 }

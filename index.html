@@ -3,121 +3,48 @@
     <head>  
         <meta charset="UTF-8">
         <meta name="author" content="Kysean">
-        <meta name="keywords" content="Kysean,个人网站">
+        <meta name="keywords" content="Kysean,share,study">
         <meta name="description" content="Kysean的个人网站">
         <title>Kysean的网站</title>
-        <link rel="stylesheet" href="style.css">
-
-    <style>
-        
-        body {
-                background-color: #d4e5ee;
-        }
-
-        .title {
-            display: flex;
-            justify-content: left;
-            align-items: center;
-            height: auto;
-            background-color: bisque;
-            border-radius: 8px;
-        }
-
-        #main_box {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: flex-start;
-            gap: 32px; 
-            width: 100%;
-            min-height: 600px;
-            box-sizing: border-box;
-            padding: 24px 5vw;
-            background-color: rgb(84, 126, 126);
-            border-radius: 8px;
-        }
-
-        #introduce_box {
-            flex: 2 1 320px;
-            min-width: 260px;
-            background-color: rgb(103, 170, 201);
-            padding: 32px 24px;
-            border-radius: 12px;
-            box-sizing: border-box;
-            margin-bottom: 16px;
-        }
-
-        #introduce {
-            text-align:center ;
-            background-color: darkorange;
-        }
-
-        #message_box {
-            flex: 1 1 220px;
-            min-width: 180px;
-            background-color: rgb(112, 112, 206);
-            color: #fff;
-            padding: 32px 24px;
-            border-radius: 12px;
-            box-sizing: border-box;
-            margin-bottom: 16px;
-        }
-
-        #message_title {
-            text-align: center;
-            background-color: cadetblue;
-        }
-
-        #clock-bar {
-            width: 100%;
-            height: auto;
-            border-radius: 5px;
-            margin-top: 2px;
-            background-color: rgb(87, 185, 153);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-    </style>
-
+        <link rel="stylesheet" href="css/globe_style.css">
+        <link rel="stylesheet" href="css/index_style.css">
     <!--时钟脚本-->
-    <script>
-    var i=0;
-    function myDate(){
-        var now=new Date();
-        var year=now.getFullYear();
-        var month=now.getMonth()+1;
-        var day=now.getDate();
-        var hours=now.getHours();
-        var minutes=now.getMinutes();
-        var seconds=now.getSeconds();
- 
-        document.getElementById("clock").innerHTML=year+"年"+month+"月"+day+"日"+hours+"："+minutes+"："+seconds;
-    }
-    setInterval(myDate,1000);
-    </script>
-
+        <script>
+            var i=0;
+            function myDate(){
+                var now=new Date();
+                var year=now.getFullYear();
+                var month=now.getMonth()+1;
+                var day=now.getDate();
+                var hours=now.getHours();
+                var minutes=now.getMinutes();
+                var seconds=now.getSeconds();
+        
+                document.getElementById("clock").innerHTML=year+"年"+month+"月"+day+"日"+hours+"："+minutes+"："+seconds;
+            }
+            setInterval(myDate,1000);
+        </script>
 </head>
-
     <body>
-
         <!--标题栏-->
-        <div id = "title" class="title">
-            <img src = "image/Kysean.png" alt = "Kysean" width = "100" height = "100" >
-            <h1>Kysean的个人网站</h1>
+        <div id ="title_box">
+            <span class="title_left">
+                <img src = "image/Kysean.png" alt = "Kysean" width = "100" height = "100" >
+                <h1>Kysean的个人网站</h1>
+            </span>
+            <span class = "title_right">
+                <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=100% height=86 src="https://music.163.com/outchain/player?type=2&id=478507889&auto=1&height=66"></iframe>
+            </span>
         </div>
         <hr>
-
         <!--导航栏-->
-        <nav style="text-align: center;background-color: rgb(156, 43, 156);border-radius: 5px;">
+        <nav style="text-align: center;">
             <a href="index.html">🏠首页</a> |
             <a href="webpage.html">🌐网站</a> |
             <a href="repo.html">📦仓库</a> |
             <a href="contact.html">☎️联系我</a>
         </nav>
         <hr>
-
         <!--内容-->
         <div id="main_box">
             <!--文字介绍-->
@@ -131,19 +58,24 @@
             <!--仪表盘-->
             <div id="message_box">
                 <h2 id = "message_title"> 📊仪表盘 📊</h2>
-                <div id = "clock-bar">
+                <div id = "message_bar">
                     <span>🕔当前时间：<span id = "clock">time</span></span>
+                </div>
+                <div id = "message_bar">
+                    <span>🌥️今日天气：<span>晴转大荒星陨</span></span>
+                </div>
+                <div id = "tip">
+                    <span>我们终此一生，就是要摆脱他人的期待，找到真正的自己。</span>
                 </div>
             </div>
         </div>
-
+        <hr>
         <!--页脚-->
-        <div style="background-color: darkgrey;border-radius: 6px;">
+        <div>
             <footer>
                 <p style="text-align: center;">&copy; 2025 Kysean 保留所有权利。</p>
             </footer>
         </div>
-    
         <script>
             (function () {
                 var a_idx = 0;
@@ -179,18 +111,14 @@
                             s += 0.002;
                         }
                     }, 15)
-    
                 }
                 // 随机颜色
                 function randomColor() {
     
                     return "rgb(" + (~~(Math.random() * 255)) + "," + (~~(Math.random() * 255)) + "," + (~~(Math
                     .random() * 255)) + ")";
-    
                 }
             }());
         </script>
-
     </body>
-
 </html>
