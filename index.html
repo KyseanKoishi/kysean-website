@@ -62,47 +62,18 @@
             color: #fff;
         }
 
-        #message .clock-bar {
+        #clock-bar {
             width: 100%;
-            height: 30px;
+            height: auto;
+            border-radius: 5px;
+            margin-top: 2px;
+            background-color: aquamarine;
+            display: flex;
+            align-items: center;
             justify-content: center;
-            border-radius: 12px;
-            margin-top: 12px;
         }
 
-
-        #hitokoto_from {
-            text-align: right;
-            display: block;
-            margin-top: 0;
-            margin-bottom: 0;
-            font-style: italic;
-            color: #e0e0e0;
-        }
-
-        @media (max-width: 900px) {
-            #main {
-                flex-direction: column;
-                gap: 20px;
-                padding: 12px 2vw;
-            }
-            #introduce, #message {
-                width: 100%;
-                min-width: 0;
-            }
-        }
     </style>
-
-
-    <script>
-    fetch('https://v1.hitokoto.cn')
-        .then(response => response.json())
-        .then(data => {
-            hitokoto_text.innerText = data.hitokoto
-            hitokoto_from.innerText = '————' + data.from
-        })
-        .catch(console.error)
-    </script>
 
     <!--时钟脚本-->
     <script>
@@ -153,9 +124,9 @@
             <!--仪表盘-->
             <div id="message">
                 <h2 id = "message_title"> 📊仪表盘 📊</h2>
-                <span class="clock-bar">🕔当前时间：<span id = "clock">当前时间</span></span>
-                <p id="hitokoto_text">:D 获取中...</p>
-                <p id="hitokoto_from">from</p>
+                <div id = "clock-bar">
+                    <span>🕔当前时间：<span id = "clock">time</span></span>
+                </div>
             </div>
         </div>
 
