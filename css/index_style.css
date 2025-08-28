@@ -12,7 +12,6 @@ color: rgb(77, 134, 96);
     justify-content: left;
     width: 100%;
     height: auto;
-
 }
 
 .title_left {
@@ -20,16 +19,16 @@ color: rgb(77, 134, 96);
     justify-content: left;
     align-items: center;
     height: auto;
-    border-radius: 8px;
+    min-width: 70%;
 }
 
 .title_right{
     display: flex;
     height: auto;
-    border-radius: 8px;
+    width: 30%;
     align-items: center;
     justify-content: center;
-    min-width: 500px;
+    min-width: 200px;
 }
 
 #main_box {
@@ -78,7 +77,6 @@ color: rgb(77, 134, 96);
 #message_bar {
     width: 100%;
     height: auto;
-    border-radius: 5px;
     margin-top: 2px;
     display: flex;
     align-items: center;
@@ -89,7 +87,8 @@ color: rgb(77, 134, 96);
     display: flex;
     width: 100%;
     height: auto;
-    border-radius: 5px;
     margin-top: 2px;
     margin-top: 20px;
+    align-items: center;
+    justify-content: center;
 }
